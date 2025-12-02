@@ -2,7 +2,7 @@
 
 **A Chrome Extension for K-12 Filter Evasion Prevention**
 
-Written by Jim Tyler, Microsoft MVP  
+Written by Jim Tyler
 
 ---
 
@@ -25,9 +25,9 @@ You Shall Not Pass is a Chrome extension designed specifically for K-12 educatio
 ## Installation
 
 ### Chrome Web Store (Recommended)
-Published extension ID: `eghfkiedaecinpfcdppagfaojpoblkjj`
+Published extension ID: `efggnkbeomjjanjmghbadggegjemogee`
 
-Install directly from the Chrome Web Store (coming soon).
+**Install here**: [You Shall Not Pass by Jim Tyler](https://chromewebstore.google.com/detail/you-shall-not-pass-by-jim/efggnkbeomjjanjmghbadggegjemogee)
 
 ### Enterprise Deployment
 
@@ -35,7 +35,7 @@ For force-installation via Google Admin Console:
 
 1. Navigate to **Devices** → **Chrome** → **Apps & Extensions**
 2. Select your organizational unit
-3. Add by extension ID: `eghfkiedaecinpfcdppagfaojpoblkjj`
+3. Add by extension ID: `efggnkbeomjjanjmghbadggegjemogee`
 4. Set installation policy to **Force Install**
 5. Optionally pin to toolbar for visibility
 
@@ -232,11 +232,11 @@ The extension maintains persistent connections between content scripts and the b
 ```json
 {
   "ExtensionInstallForcelist": [
-    "eghfkiedaecinpfcdppagfaojpoblkjj;https://clients2.google.com/service/update2/crx"
+    "efggnkbeomjjanjmghbadggegjemogee;https://clients2.google.com/service/update2/crx"
   ],
   "ExtensionInstallBlocklist": ["*"],
   "ExtensionInstallAllowlist": [
-    "eghfkiedaecinpfcdppagfaojpoblkjj"
+    "efggnkbeomjjanjmghbadggegjemogee"
   ]
 }
 ```
