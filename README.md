@@ -112,7 +112,6 @@ The extension codebase has been designed to minimize security vulnerabilities:
 **Open Source Transparency:**
 - Complete source code available at: https://github.com/jimrtyler/youshallnotpass
 - Community auditing encouraged
-- Issue reporting via GitHub Issues
 - Pull requests accepted for security improvements
 
 ### Compliance & Privacy Standards
@@ -155,7 +154,7 @@ If you are forking this project or republishing under your own Chrome Web Store 
 If you discover a security vulnerability in this extension:
 
 1. **Do not** open a public GitHub issue
-2. Email security concerns directly to: jim.tyler@nilesschools.org
+2. Email security concerns directly to: coachjimtyler@gmail.com
 3. Provide detailed information about the vulnerability
 4. Allow reasonable time for a fix before public disclosure
 
@@ -407,7 +406,7 @@ Recommended testing scenarios:
 - Additional forensic data collection
 - Dashboard UI for log viewing
 
-**Contact**: jim.tyler@nilesschools.org
+**Contact**: coachjimtyler@gmail.com
 
 ---
 
@@ -440,5 +439,4 @@ Special thanks to the educational technology community for sharing intelligence 
 ---
 
 **Written by Jim Tyler, Microsoft MVP**  
-Director of Technology, Niles Community Schools  
 GitHub: https://github.com/jimrtyler/youshallnotpass
