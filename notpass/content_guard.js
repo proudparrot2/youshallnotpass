@@ -1,4 +1,4 @@
-// You Shall Not Pass - Enterprise Hardened v3.0
+// You Shall Not Pass - Enterprise Hardened v3.0.2
 // Content Guard Script
 // Written by Jim Tyler, Microsoft MVP
 // Visit my Github for project notes: https://github.com/jimrtyler/youshallnotpass

@@ -1,4 +1,4 @@
-// You Shall Not Pass - Enterprise Hardened v3.0
+// You Shall Not Pass - Enterprise Hardened v3.0.2
 // Written by Jim Tyler, Microsoft MVP
 // Visit my Github for project notes: https://github.com/jimrtyler/youshallnotpass
 // Background Service Worker
@@ -233,25 +233,6 @@ async function handleBulkTabCreation(tabCount) {
 }
 
 // ============================================================================
-// ABOUT:BLANK HANDLING
-// ============================================================================
-
-async function handleBlankTab(tabId, url) {
-  if (url === 'about:blank') {
-    try {
-      await chrome.tabs.remove(tabId);
-      
-      await ForensicLogger.log('ABOUT_BLANK_CLOSED', {
-        tabId,
-        reason: 'Instant closure policy'
-      });
-    } catch (error) {
-      console.log('Tab already closed or removed:', error);
-    }
-  }
-}
-
-// ============================================================================
 // SERVICE WORKER DETECTION
 // ============================================================================
 
@@ -394,16 +375,6 @@ chrome.tabs.onCreated.addListener(async (tab) => {
   }
   
   await enforceTabLimit();
-  
-  if (tab.url === 'about:blank') {
-    await handleBlankTab(tab.id, tab.url);
-  }
-});
-
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-  if (changeInfo.url === 'about:blank') {
-    await handleBlankTab(tabId, changeInfo.url);
-  }
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {
@@ -426,10 +397,10 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
 // ============================================================================
 
 chrome.runtime.onInstalled.addListener(async (details) => {
-  console.log('You Shall Not Pass Enterprise v3.0 installed');
+  console.log('You Shall Not Pass Enterprise v3.0.2 installed');
   
   await ForensicLogger.log('EXTENSION_INSTALLED', {
-    version: '3.0.0',
+    version: '3.0.2',
     reason: details.reason,
     previousVersion: details.previousVersion
   });
@@ -437,12 +408,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   await enforceTabLimit();
   
   const tabs = await chrome.tabs.query({});
-  for (const tab of tabs) {
-    if (tab.url === 'about:blank' && tab.id) {
-      await handleBlankTab(tab.id, tab.url);
-    }
-  }
-  
   await handleBulkTabCreation(tabs.length);
   
   // Start heartbeat monitoring
@@ -450,20 +415,14 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 });
 
 chrome.runtime.onStartup.addListener(async () => {
-  console.log('You Shall Not Pass Enterprise v3.0 started');
+  console.log('You Shall Not Pass Enterprise v3.0.2 started');
   
   await ForensicLogger.log('EXTENSION_STARTUP', {
-    version: '3.0.0',
+    version: '3.0.2',
     timestamp: new Date().toISOString()
   });
   
   const tabs = await chrome.tabs.query({});
-  for (const tab of tabs) {
-    if (tab.url === 'about:blank' && tab.id) {
-      await handleBlankTab(tab.id, tab.url);
-    }
-  }
-  
   await handleBulkTabCreation(tabs.length);
   
   // Start heartbeat monitoring
@@ -476,13 +435,6 @@ chrome.runtime.onStartup.addListener(async () => {
 
 setInterval(async () => {
   await enforceTabLimit();
-  
-  const tabs = await chrome.tabs.query({ url: 'about:blank' });
-  for (const tab of tabs) {
-    if (tab.id) {
-      await handleBlankTab(tab.id, tab.url);
-    }
-  }
 }, 10000);
 
 // ============================================================================
@@ -512,6 +464,6 @@ function stopKeepAlive() {
 // Start keepalive
 startKeepAlive();
 
-console.log('You Shall Not Pass Enterprise v3.0 - Background worker initialized');
+console.log('You Shall Not Pass Enterprise v3.0.2 - Background worker initialized');
 // Written by Jim Tyler, Microsoft MVP
 // Visit my Github for project notes: https://github.com/jimrtyler/youshallnotpass

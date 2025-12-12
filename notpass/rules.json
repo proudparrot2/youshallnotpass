@@ -1,15 +1,5 @@
 [
   {
-    "id": 1001,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "regexFilter": ".*(math|homework|study|class|school).*(game|play|unblock|proxy).*",
-      "resourceTypes": ["main_frame", "sub_frame"],
-      "domainType": "thirdParty"
-    }
-  },
-  {
     "id": 1002,
     "priority": 2,
     "action": { "type": "block" },
