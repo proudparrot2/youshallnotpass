@@ -42,7 +42,7 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "urlFilter": "*mercuryworkshop*",
+      "urlFilter": "*mercurywork*",
       "resourceTypes": ["main_frame", "sub_frame"]
     }
   },
